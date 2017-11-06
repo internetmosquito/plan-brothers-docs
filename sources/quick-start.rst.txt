@@ -90,7 +90,7 @@ change unless you change the images used.
 First time you visit this might take a long time, since a call to each service for all images in **images** folder is
 done, before rendering the results page. Once it is finished, you should get something like the image below.
 
-.. image:: _static/_images/results_page.png
+.. image:: ./static/images/results_page.png
    :scale: 50 %
    :alt: results page
    :align: center
