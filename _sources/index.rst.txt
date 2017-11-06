@@ -1,0 +1,49 @@
+.. plan_brothers_image_taggers documentation master file, created by
+   sphinx-quickstart on Sun Nov  5 13:14:13 2017.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to PlanBrothers image taggers comparison's documentation!
+=================================================================
+
+This is a short documentation that depicts the most important things in this Flask-based demo project
+that tries to make a comparison on several image tagging cloud services that can be found
+in Internet nowadays:
+
+* `Amazon Rekognition <https://aws.amazon.com/rekognition/>`_
+* `Google Computer Vision <https://cloud.google.com/vision/?hl=en>`_
+* `Clarifai <https://www.clarifai.com/>`_
+* `Microsoft Computer Vision <https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/>`_
+
+The objective is to check the tagging capabilities of each of those services, as well as determine
+the level of accuracy of each of those. To that aim, a set of images is used in every test run, so
+we can have a deterministic way to test each service.
+
+The images can be found in the **images** folder in the root path. It is a selection of 15 pictures related
+with factories and 10 pictures related with Shopping malls.
+
+Results from this comparison are shown via a very simple web page where data is shown in a table, where columns
+are used for each service and each row represents an image from the sample data. Every cell in the table contains
+the tags and probability each Service has obtained for such image.
+
+Please check the :doc:`Quick Start guide <quick-start>` to get things rolling quickly!
+
+Contents:
+
+.. toctree::
+   :maxdepth: 2
+
+   quick-start
+   main
+   image_tagging
+
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+

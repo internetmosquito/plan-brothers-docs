@@ -1,0 +1,206 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Quick Start guide &#8212; PlanBrothers Image Tagging Services comparisson 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/flasky.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="main module" href="main.html" />
+    <link rel="prev" title="Welcome to PlanBrothers image taggers comparison’s documentation!" href="index.html" />
+   
+  
+  <link media="only screen and (max-device-width: 480px)" href="_static/small_flask.css" type= "text/css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="main.html" title="main module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to PlanBrothers image taggers comparison’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PlanBrothers Image Tagging Services comparisson 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="quick-start-guide">
+<h1>Quick Start guide<a class="headerlink" href="#quick-start-guide" title="Permalink to this headline">¶</a></h1>
+<p>The objective of this guide is to help you get the project up &amp; running as shortly and efficiently as
+possible.</p>
+<p>But first, some homework.</p>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Python 3.x</li>
+<li>Virtualenv</li>
+<li>Credentials for each service: Amazon Rekognition, Google Cloud Vision, Clarifai and Microsoft Computer Vision</li>
+</ul>
+<p>Once you have the above installed, please proceed to the following:</p>
+<ul>
+<li><p class="first">Create a a new virtualenv and activate it:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">new</span><span class="o">/</span><span class="n">virtual</span><span class="o">/</span><span class="n">environment</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Activate new virtualenv:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">new</span><span class="o">/</span><span class="n">virtual</span><span class="o">/</span><span class="n">environment</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Install requirements file located in <strong>alejandro-cv-api-proto/requirements.txt</strong>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">You need to setup the following env variables in order for this to work:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">CLARIFAI_API_KEY</span><span class="o">=</span><span class="n">your_clarifai_api_key</span>
+<span class="n">export</span> <span class="n">AMAZON_CLIENT</span><span class="o">=</span><span class="n">your_amazon_client_code</span>
+<span class="n">export</span> <span class="n">AMAZON_SECRET</span><span class="o">=</span><span class="n">your_amazon_secret</span>
+<span class="n">export</span> <span class="n">GOOGLE_SECRET</span><span class="o">=</span><span class="n">your_google_api_key</span>
+<span class="n">export</span> <span class="n">MICROSOFT_API_KEY</span><span class="o">=</span><span class="n">your_microsoft_api_key</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">It is highly advisable to make these variables permanent. The process is varies depending on your OS and bash option, check <a class="reference external" href="https://unix.stackexchange.com/a/117470">Making env variables permanent in Ubuntu</a> to see examples for Ubuntu</p>
+</li>
+<li><p class="first">If you need help on obtaining these credentials, check the following links</p>
+</li>
+</ul>
+<p>Clarifai’s credentials, check this <a class="reference external" href="https://developer.clarifai.com/account/api-keys">link</a></p>
+<p>Amazon’s credentials, check this <a class="reference external" href="http://docs.aws.amazon.com/rekognition/latest/dg/setting-up.html">link</a></p>
+<p>Google’s credentials, check this <a class="reference external" href="https://support.google.com/cloud/answer/6158862?hl=en">link</a></p>
+<p>Microsoft’s credentials, check this <a class="reference external" href="https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/home">link</a></p>
+<p>The process to obtain credentials differs from one to another and can be somewhat complex (Amazon and Google mostly).</p>
+<ul>
+<li><p class="first">There are some other configuration variables that you need to set before starting:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># This indicates the maximum number of labels to obtain, specially useful for Google Cloud Vision</span>
+<span class="n">MAX_LABELS</span>
+
+<span class="c1"># Specifies file path and name of the pickled file to use to store and retrieve data. Sort of a cache, to avoid unnecessary calls to the APIs</span>
+<span class="n">PICKLED_FILE</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p><strong>MAX_LABELS</strong> indicates the number of labels to be returned for each image. A default value of 1 is used. A normal value
+would be something between 1 and 10 tops.</p>
+<p><strong>PICKLED_FILE</strong> is used to specify the relative file path in case we want to save API calls, and therefore costs, by
+using a pickled file, that will store results from API calls. This is not mandatory, it is up to you to decide if you
+want to use this to avoid calling APIs every time you visit results page.</p>
+<ul>
+<li><p class="first">As an extra step, you might want to change the default values in <strong>alejandro-cv-api-proto/main.py</strong>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Get results for all APIs</span>
+<span class="n">tagger</span><span class="o">.</span><span class="n">data_frame</span> <span class="o">=</span> <span class="n">tagger</span><span class="o">.</span><span class="n">use_all</span><span class="p">(</span><span class="n">folder_name</span><span class="o">=</span><span class="s1">&#39;images&#39;</span><span class="p">,</span> <span class="n">pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">store</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p><strong>pickle</strong>: If True, it will try to load the pickled file with data specified with config param PICKLED_FILE, obviously
+you should have a file with pickled data first, if not, it will assume there is none and call APIs.</p>
+<p><strong>store</strong>: If True, will save the results of calling APIs into the pickled file, in case PICKLED_FILE was set. Otherwise
+it will not save the results.</p>
+<p>In general, both are used when you want to save calls to APIs while rendering the results page, since results shouldn’t
+change unless you change the images used.</p>
+<ul>
+<li><p class="first">Fire up the server:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">main</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Visit the server results page <a class="reference external" href="http:localhost:5000">localhost</a></p>
+</li>
+</ul>
+<p>First time you visit this might take a long time, since a call to each service for all images in <strong>images</strong> folder is
+done, before rendering the results page. Once it is finished, you should get something like the image below.</p>
+<a class="reference internal image-reference" href="_images/results_page.png"><img alt="results page" class="align-center" src="_images/results_page.png" style="width: 675.5px; height: 325.5px;" /></a>
+</div>
+<div class="section" id="further-reading">
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<p>This is it! You should be able to click on each image to see it in detail. If you want to know more on how things work
+under the hood, please check <a class="reference internal" href="technical_reading.html"><span class="doc">this page</span></a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/plan_brothers.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Quick Start guide</a><ul>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#further-reading">Further reading</a></li>
+</ul>
+</li>
+</ul>
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to PlanBrothers image taggers comparison’s documentation!</a></li>
+      <li>Next: <a href="main.html" title="next chapter">main module</a></li>
+  </ul></li>
+</ul>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/quick-start.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2017, Alejandro Villamarin.
+    </div>
+  </body>
+</html>

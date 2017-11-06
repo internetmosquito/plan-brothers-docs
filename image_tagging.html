@@ -1,0 +1,185 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>image_tagging module &#8212; PlanBrothers Image Tagging Services comparisson 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/flasky.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="main module" href="main.html" />
+   
+  
+  <link media="only screen and (max-device-width: 480px)" href="_static/small_flask.css" type= "text/css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="main.html" title="main module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">PlanBrothers Image Tagging Services comparisson 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-image_tagging">
+<span id="image-tagging-module"></span><h1>image_tagging module<a class="headerlink" href="#module-image_tagging" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="image_tagging.ImageTagger">
+<em class="property">class </em><code class="descclassname">image_tagging.</code><code class="descname">ImageTagger</code><a class="headerlink" href="#image_tagging.ImageTagger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>A class that gives access to this test application</p>
+<dl class="attribute">
+<dt id="image_tagging.ImageTagger.GOOGLE_VISION_DISCOVERY_URL">
+<code class="descname">GOOGLE_VISION_DISCOVERY_URL</code><em class="property"> = 'https://vision.googleapis.com/v1/images:annotate?key={0}'</em><a class="headerlink" href="#image_tagging.ImageTagger.GOOGLE_VISION_DISCOVERY_URL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="image_tagging.ImageTagger.IMAGE_FILE_TYPES">
+<code class="descname">IMAGE_FILE_TYPES</code><em class="property"> = ['png', 'jpg', 'jpeg']</em><a class="headerlink" href="#image_tagging.ImageTagger.IMAGE_FILE_TYPES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="image_tagging.ImageTagger.MICROSOFT_VISION_URL">
+<code class="descname">MICROSOFT_VISION_URL</code><em class="property"> = 'https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/'</em><a class="headerlink" href="#image_tagging.ImageTagger.MICROSOFT_VISION_URL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="image_tagging.ImageTagger.configure_tagger">
+<code class="descname">configure_tagger</code><span class="sig-paren">(</span><em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#image_tagging.ImageTagger.configure_tagger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads the API credentials from the config file and initializes API clients
+:return: True if config file was parsed and API clients initialized correctly</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="image_tagging.ImageTagger.path_leaf">
+<code class="descname">path_leaf</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#image_tagging.ImageTagger.path_leaf" title="Permalink to this definition">¶</a></dt>
+<dd><p>A simple helper function that returns the last path (the file) of a path
+:param path: The whole path
+:return: The filename</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="image_tagging.ImageTagger.process_images_amazon">
+<code class="descname">process_images_amazon</code><span class="sig-paren">(</span><em>folder_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#image_tagging.ImageTagger.process_images_amazon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Labels images specified in folder with Amazon Rekognition. Looks like Amazon does not
+support sending more then one image per request. This can be improved using Amazon Batch
+but is overkill for a small set of images like the one we are going to use
+:param folder_name: The complete path where the images are
+:param store_results: Indicates if obtained response should be stored as JSON file
+:return: A DataFrame containing the available data</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="image_tagging.ImageTagger.process_images_clarifai">
+<code class="descname">process_images_clarifai</code><span class="sig-paren">(</span><em>folder_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#image_tagging.ImageTagger.process_images_clarifai" title="Permalink to this definition">¶</a></dt>
+<dd><p>Processes the specified image folder using the Clarifai API
+:param folder_name: The complete path where the images are
+:return: A DataFrame containing the available data</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="image_tagging.ImageTagger.process_images_google_vision">
+<code class="descname">process_images_google_vision</code><span class="sig-paren">(</span><em>folder_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#image_tagging.ImageTagger.process_images_google_vision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterates over the specified folder and returns the combined response from calling Google Cloud Vision API
+using only LABEL detection and 5 maximum per image. Since it looks like Google does not like sending more
+than 10 images per Request, we have to make sure we process every batch of 10 images until finished
+:param folder_name: The full path to the folder with images to be processed
+:return: A DataFrame containing the available data</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="image_tagging.ImageTagger.process_images_microsoft_vision">
+<code class="descname">process_images_microsoft_vision</code><span class="sig-paren">(</span><em>folder_name=None</em>, <em>operation='tag'</em><span class="sig-paren">)</span><a class="headerlink" href="#image_tagging.ImageTagger.process_images_microsoft_vision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterates over the specified folder and returns the combined response from calling Microsoft Vision API
+calling the tag endpoint just for now. Looks like Microsoft only allows one image per request, so we will
+have to deal with an image per request.
+:param folder_name: The full path to the folder with images to be processed
+:param operation: Specifies the API operation to use, current values allowed are tag and analysis
+:return: A DataFrame containing the available data</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="image_tagging.ImageTagger.use_all">
+<code class="descname">use_all</code><span class="sig-paren">(</span><em>folder_name</em>, <em>pickle</em>, <em>store</em><span class="sig-paren">)</span><a class="headerlink" href="#image_tagging.ImageTagger.use_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper that will use all available APIs
+:param folder_name: The folder containing images to be tagged
+:param pickle: If true, will try to load DataFrame from pickled file
+:param store: If true, will try to save DataFrame in pickled file
+:return: A DataFrame with all available data</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/plan_brothers.png" alt="Logo"/>
+            </a></p><h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="main.html" title="previous chapter">main module</a></li>
+  </ul></li>
+</ul>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/image_tagging.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2017, Alejandro Villamarin.
+    </div>
+  </body>
+</html>

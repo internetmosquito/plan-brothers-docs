@@ -1,0 +1,7 @@
+image_tagging module
+====================
+
+.. automodule:: image_tagging
+    :members:
+    :undoc-members:
+    :show-inheritance:
